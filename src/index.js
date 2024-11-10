@@ -13,7 +13,5 @@ root.render(
     </HashRouter>
   </React.StrictMode>
 );
-document.getElementById('root');
-
 
 reportWebVitals();
