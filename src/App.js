@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";  // Use BrowserRouter for routing
 import Navbar from './components/Navbar';
 import News from './components/News';
-import { Route, Routes } from "react-router-dom";
 
 export default class App extends Component {
   render() {
     return (
-      <>
+      <Router>
         <Navbar />
         <Routes>
           <Route path="/" element={<News key="general" pageSize={6} country="us" category="general" />} />
@@ -18,7 +18,7 @@ export default class App extends Component {
           <Route path="/sports" element={<News key="sports" pageSize={6} country="us" category="sports" />} />
           <Route path="/technology" element={<News key="technology" pageSize={6} country="us" category="technology" />} />
         </Routes>
-      </>
+      </Router>
     );
   }
 }
