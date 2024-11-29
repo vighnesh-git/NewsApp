@@ -16,13 +16,14 @@ const News = (props) => {
 
     const UpdateNews = async () => {
         props.setProgress(10);
+
         const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apikey=${props.apikey}&page=${page}&pageSize=${props.pageSize}`;
         setLoading(true);
         let data = await fetch(url);
         let parsedData = await data.json();
         props.setProgress(50);
         console.log(parsedData);
-        setArticles(parsedData.articles); // Fixed to `articles`
+        setArticles(parsedData.articles);
         setTotalResults(parsedData.totalResults);
         setLoading(false);
         props.setProgress(100);
@@ -45,12 +46,13 @@ const News = (props) => {
     // };
 
     const fetchMoreData = async () => {
+        
         const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apikey=${props.apikey}&page=${page+1}&pageSize=${props.pageSize}`;
         setPage(page+1);
         let data = await fetch(url);
         let parsedData = await data.json();
         console.log(parsedData);
-        setArticles(articles.concat(parsedData.articles)); // Corrected to `articles`
+        setArticles(articles.concat(parsedData.articles)); 
         setTotalResults(parsedData.totalResults);
     };
 
@@ -62,9 +64,9 @@ const News = (props) => {
                 </h1>
                 {loading && <Spinner />}
                 <InfiniteScroll
-                    dataLength={articles.length} // Corrected to `articles`
+                    dataLength={articles.length}
                     next={fetchMoreData}
-                    hasMore={articles.length !== totalResults} // Corrected to `articles`
+                    hasMore={articles.length !== totalResults} 
                     loader={<Spinner />}
                 >
                     <div className="container">
@@ -107,3 +109,7 @@ News.propTypes = {
 };
 
 export default News;
+
+
+
+
