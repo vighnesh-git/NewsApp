@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-
-=======
-# NewsApp
->>>>>>> 05ffe213e15155fb79519ceba1b4b5418872b1f9
+NewsApp: A React-based web application that fetches and displays real-time news using NewsAPI. Features include category-based browsing, search functionality, infinite scrolling, and responsive design with Bootstrap.
